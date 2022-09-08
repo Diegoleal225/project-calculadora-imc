@@ -42,7 +42,7 @@ h1, h2, h3, h4, h5, h6 {
 .caixa-field{
     position: relative;
     width: 52vw;
-    height: 50vh;
+    min-height: 50vh;
     background-color: rgba(255, 255, 255, 0.068);
     border-radius: 5%;
     border: 2px solid rgba(28, 166, 247, 0.774);
