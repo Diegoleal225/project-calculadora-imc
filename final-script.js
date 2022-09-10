@@ -1,4 +1,4 @@
-function escopo(){
+function root(){
     const form=document.querySelector('.form');
     function recebeEvento( evento){
         evento.preventDefault();
@@ -21,34 +21,25 @@ function verify(){
 
     if (!firstName){
         const gridResultContBack= document.querySelector('.grid-result-container').style.background='red';
-        spanNameResultV.innerHTML=` `;
-        spanLastName.innerHTML=` `;
-        spanResultComp.innerHTML=` `;
+        clearSpan();
         spanImcResult.innerHTML= `Nome invalido `;
         return ;
 
     } else if (!lastName){
         const gridResultContBack= document.querySelector('.grid-result-container').style.background='red';
-        spanNameResultV.innerHTML=` `;
-        spanLastName.innerHTML=` `;
-        spanResultComp.innerHTML=` `;
+        clearSpan();
         spanImcResult.innerHTML= `Sobre nome invalido `;
         return ;
     } else if(!peso){
         const gridResultContBack= document.querySelector('.grid-result-container').style.background='red';
-        spanNameResultV.innerHTML=` `;
-        spanLastName.innerHTML=` `;
-        spanResultComp.innerHTML=` `;
+        clearSpan();
         spanImcResult.innerHTML= `Peso invalido ${peso}`;
         return;
     }else if (!altura){
+        clearSpan();
         const gridResultContBack= document.querySelector('.grid-result-container').style.background='red';
-        spanNameResultV.innerHTML=` `;
-        spanLastName.innerHTML=` `;
-        spanResultComp.innerHTML=` `;
         spanImcResult.innerHTML= `Altura invalida ${altura}`;
         return;
-
     }else{
         spanImcResult.innerHTML=` `;
         spanNameResultV.innerHTML=firstName;
@@ -56,7 +47,14 @@ function verify(){
         spanResultComp.innerHTML=imcResult(imc);
     }
 }
-
+function clearSpan(){
+    const spanNameResultV=document.querySelector('.name-result');
+    const spanLastName= document.querySelector('.last-name-result');
+    const spanResultComp= document.querySelector('.result-comp');
+    spanNameResultV.innerHTML=` `;
+    spanLastName.innerHTML=` `;
+    spanResultComp.innerHTML=` `;
+}
 function imcResult(imc){
     const gridResultContBack= document.querySelector('.grid-result-container').style.background='red';
     const gridResultContFont= document.querySelector('.grid-result-container').style.color='white';
@@ -76,4 +74,4 @@ function imcResult(imc){
         return imc='Abaixo do peso'
     }
 }
-escopo();
+root();
