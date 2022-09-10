@@ -1,0 +1,235 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    overflow-y: hidden;
+    transition: all 400ms ease-in-out;
+    font-family: 'Open Sans', sans-serif;
+    background-image: url("./assets/blue-energy.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.nav-viewport {
+    display: flex;
+    padding: 1%;
+    justify-content: center;
+    text-align: center;
+    background-color: rgba(28, 167, 247, 0.623);
+    width: 98%;
+    box-shadow: 0 0 4px black;
+}
+
+.title-h1 {
+    font-size: 250%;
+    color: white;
+    text-align: center;
+    text-shadow: 0 0 4px black;
+}
+
+.container-align {
+    padding-top: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 10%;
+}
+
+.caixa-field {
+    width: 35vw;
+    height: 75vh;
+    background-color: rgba(255, 255, 255, 0.514);
+    border-radius: 5%;
+    border: none;
+    box-shadow: 0 0 5px black;
+    display: block;
+    padding: 4%;
+    gap: 6%;
+    justify-items: center;
+    align-items: center;
+}
+
+.label {
+    color: rgba(0, 84, 133, 0.979);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 100%;
+    text-transform: uppercase;
+}
+
+.name-input,
+.last-name-input,
+.peso-input,
+.altura-input,
+.idade-input {
+    outline-style: solid;
+    outline: 0.5px solid rgba(0, 84, 133, 0.979);
+    padding: 1%;
+    font-size: 110%;
+    width: 100%;
+    height: 5vh;
+    border-radius: 10%;
+    color: rgba(0, 84, 133, 0.979);
+    background-color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 80%;
+    text-transform: uppercase;
+    box-shadow: 0 0 2px black;
+    border: 1px solid black;
+}
+
+.grid-result-container {
+    text-shadow: 0 0 1px black;
+    color: rgba(0, 84, 133, 0.979);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 100%;
+    text-transform: uppercase;
+    border-radius: 10%;
+    margin-top: 2%;
+    box-shadow: 0 0 4px black;
+    background-color: rgba(28, 167, 247, 0.301);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    height: 8vh;
+}
+
+.container-button {
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#button {
+    color: rgba(0, 84, 133, 0.979);
+    background-color: rgba(28, 167, 247, 0.301);
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    box-shadow: 0 0 2px black;
+    border: 1px solid black;
+    border-radius: 10%;
+    font-size: 110%;
+    width: 10vw;
+    height: 7vh;
+}
+
+#button:hover {
+    background-color: rgba(61, 141, 245, 0.384);
+    transform: scale(1.05);
+    color: rgb(4, 4, 109);
+}
+
+@media (max-width:800px) {
+    .caixa-field {
+        width: 50vw;
+        height: 70vh;
+    }
+}
+
+@media (max-width:748px) {
+    .container-align {
+        padding-top: 1%;
+        padding-bottom: 15%;
+    }
+}
+
+@media (max-width:610px) {
+    .title-h1 {
+        font-size: 200%;
+    }
+    .caixa-field{
+        width: 70vw;
+    }
+    .container-align {
+        padding-top: 1%;
+        padding-bottom: 18%;
+    }
+
+    .label {
+        font-size: 80%;
+    }
+
+    .name-input,
+    .last-name-input,
+    .peso-input,
+    .altura-input,
+    .idade-input {
+        font-size: 80%;
+        height: 5vh;
+    }
+
+    #button {
+        font-size: 90%;
+        width: 14vw;
+        height: 5vh;
+    }
+
+    .grid-result-container {
+        font-size: 80%;
+        height: 7vh;
+    }
+}
+
+@media (max-width:610px) {
+    .container-align {
+        padding-top: 1%;
+        padding-bottom: 24%;
+    }
+}
+
+@media (max-width:445px) {
+
+    .container-align {
+        padding-top: 5%;
+        padding-bottom: 28%;
+    }
+    .name-input,
+    .last-name-input,
+    .peso-input,
+    .altura-input,
+    .idade-input {
+        font-size: 80%;
+        height: 4vh;
+    }
+
+    .grid-result-container {
+        font-size: 75%;
+        height: 5vh;
+    }
+
+    #button {
+        font-size: 75%;
+        height: 4vh;
+    }
+
+    .container-align {
+        padding-top: 1%;
+        padding-bottom: 30%;
+    }
+}
+@media (max-width:375px){
+    .container-align {
+        padding-top: 6%;
+        padding-bottom: 30%;
+    }
+    #button {
+        font-size: 45%;
+     
+    }
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Imc</title>
+    <link rel="stylesheet" type="text/css" href="/Aula1/Calculadora-imc/final2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap"
+            rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+</head>
+<body>
+    <header >
+        <nav class="nav-viewport" >
+            <h1 class="title-h1" >Calculadora de Imc</h1>
+        </nav>
+    </header>
+    <div class="container-align">
+        <form class="form"  method="get">
+            <fieldset class=" caixa-field">
+                <label for="name-input" class=" label">Nome:</label>
+                <input name="name-input" type="Text" class="name-input" placeholder="João">  
+
+                <label for="last-name" class="label">Sobrenome:</label>
+                <input name="last-name"type="text" class="last-name-input" placeholder="Alberto">
+                 
+                <label  for="peso" class="label">Peso:</label>
+                <input name="peso"  type="text" class="peso-input" placeholder="99.99KG">
+                   
+                <label for="altura" class="label">Altura:</label>
+                <input name="altura" type="text" class="altura-input" placeholder="1.99 M">
+             
+                <label for="idade" class="label">Idade:</label>
+                <input name="idade" type="text" class="idade-input" placeholder="99 YEAR">
+
+                <div class="grid-result-container">
+                    <p class="p-text"> <span class="name-result"> </span> <span class="last-name-result"> </span> seu imc é: <span class="p-result"></span> (<span class="result-comp"></span>)</p>
+                </div>
+                <div class="container-button">
+                    <button id="button" type="submit">Enviar</button>
+                    <button id="button" type="reset">Limpar</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <script src="/Aula1/Calculadora-imc/final-script.js"></script>
+</body>
+</html>
