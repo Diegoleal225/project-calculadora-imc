@@ -41,6 +41,7 @@ h6 {
 }
 
 .container-align {
+    margin:  auto;
     padding-top: 1%;
     display: flex;
     justify-content: center;
@@ -98,7 +99,7 @@ h6 {
     font-family: 'Montserrat', sans-serif;
     font-size: 100%;
     text-transform: uppercase;
-    border-radius: 10%;
+    border-radius: 20%;
     margin-top: 2%;
     box-shadow: 0 0 4px black;
     background-color: rgba(28, 167, 247, 0.301);
