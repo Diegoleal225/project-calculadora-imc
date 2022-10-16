@@ -1,77 +1,84 @@
-function root(){
-    const form=document.querySelector('.form');
-    function recebeEvento( evento){
-        evento.preventDefault();
-        verify();  
-    }    
-    form.addEventListener('submit',recebeEvento);
-}
-function verify(){
-    const firstName= document.querySelector('.name-input').value;
-    const lastName= document.querySelector('.last-name-input').value;
-    const peso= Number(document.querySelector('.peso-input').value);
-    const altura= Number(document.querySelector('.altura-input').value);
-    const idade=Number(document.querySelector('.idade-input').value);
-    
-    const imc=(peso/(altura*altura)).toPrecision(4);
-    const spanImcResult= document.querySelector('.p-result');
-    const spanNameResultV=document.querySelector('.name-result');
-    const spanLastName= document.querySelector('.last-name-result');
-    const spanResultComp= document.querySelector('.result-comp');
-
-    if (!firstName){
-        const gridResultContBack= document.querySelector('.grid-result-container').style.background='red';
-        clearSpan();
-        spanImcResult.innerHTML= `Nome invalido `;
-        return ;
-
-    } else if (!lastName){
-        const gridResultContBack= document.querySelector('.grid-result-container').style.background='red';
-        clearSpan();
-        spanImcResult.innerHTML= `Sobre nome invalido `;
-        return ;
-    } else if(!peso){
-        const gridResultContBack= document.querySelector('.grid-result-container').style.background='red';
-        clearSpan();
-        spanImcResult.innerHTML= `Peso invalido ${peso}`;
-        return;
-    }else if (!altura){
-        clearSpan();
-        const gridResultContBack= document.querySelector('.grid-result-container').style.background='red';
-        spanImcResult.innerHTML= `Altura invalida ${altura}`;
-        return;
-    }else{
-        spanImcResult.innerHTML=` `;
-        spanNameResultV.innerHTML=firstName;
-        spanLastName.innerHTML=lastName;
-        spanResultComp.innerHTML=imcResult(imc);
+(() => {
+    (() => {
+        const body = document.querySelector("body");
+        const recEvent = (event) => {
+            event.preventDefault();
+        }
+        body.addEventListener("submit", recEvent);
+    })();
+    function Calculadora() {
+        const nome= document.querySelector(".name-input");
+        const sobreNome= document.querySelector(".last-name-input");
+        const peso= document.querySelector(".peso-input");
+        const altura= document.querySelector(".altura-input");
+        const idade= document.querySelector(".idade-input");
+        const display= document.querySelector(".p-text");
+        const containerDisplay=document.querySelector(".grid-result-container");
+        this.clickRec=()=>{
+            document.addEventListener("click", (event) => {
+                const recEvent = event.target;
+                if (recEvent.classList.contains("buttonEnviar")) {
+                   this.handleErro();
+                } else if (recEvent.classList.contains("buttonClear")) {
+                    this.clearDisplay();
+                }
+            })
+        }
+        this.handleErro=()=>{
+            if(!nome.value){
+                containerDisplay.style.background="red";
+                display.innerHTML="Nome não informado";
+                return;
+            }else if(!sobreNome.value){
+                containerDisplay.style.background="red";
+                display.innerHTML="Sobrenome não informado";
+                return;
+            }else if(!peso.value){
+                containerDisplay.style.background="red";
+                display.innerHTML="Peso não informado";
+                return;
+            }else if(!altura.value){
+                containerDisplay.style.background="red";
+                display.innerHTML="Altura não informado";
+                return;
+            }
+            else{
+                this.showDisplay();
+            }
+        }
+        this.showDisplay=()=>{
+            const pesoN = Number(peso.value.replace(",","."));
+            const alturaN = Number(altura.value.replace(",","."));
+            const nomeN = nome.value;
+            const sobreNomeN =sobreNome.value ;
+            display.innerHTML = `${nomeN} ${sobreNomeN} imc:${this.imc(pesoN, alturaN)}`;
+        }
+        this.imc=(peso, altura) => {
+            const imcValue =( peso / (altura ** 2)).toPrecision(3);
+            return this.classifiqueImc(imcValue);
+        }
+        this.classifiqueImc=(imc) => {
+            containerDisplay.style.background = "red";
+            display.style.color='white';
+            if (imc >= 40) {
+                return `${imc} Obesidade grave!`;
+            } else if (imc <= 39.9 && imc >= 30) {
+                return `${imc} Obesidade!`;
+            } else if (imc <= 29.9 && imc >= 25) {
+                containerDisplay.style.background = '#dade00';
+                return `${imc} Sobrepeso!`;
+            } else if (imc <= 24.9 && imc >= 18.5) {
+                containerDisplay.style.background = '#00fa9a';
+                return `${imc} Peso ideal!`;
+            } else if (imc < 18.5) {
+                return `${imc} Magreza!`;
+                }
+            }
+        this.clearDisplay=()=>{
+            containerDisplay.style.background = 'rgba(0, 84, 133, 0.979)';
+            return display.innerHTML = " ";
+        }
     }
-}
-function clearSpan(){
-    const spanNameResultV=document.querySelector('.name-result');
-    const spanLastName= document.querySelector('.last-name-result');
-    const spanResultComp= document.querySelector('.result-comp');
-    spanNameResultV.innerHTML=` `;
-    spanLastName.innerHTML=` `;
-    spanResultComp.innerHTML=` `;
-}
-function imcResult(imc){
-    const gridResultContBack= document.querySelector('.grid-result-container').style.background='red';
-    const gridResultContFont= document.querySelector('.grid-result-container').style.color='white';
-    if (imc>=50){
-        return imc=` Obesidade gravissima Imc:${imc}`;
-    }else if(imc>=40){
-        return imc=` Obesidade grave Imc:${imc}`;
-    }else if(imc>=35){
-        return imc=` Obesidade moderada Imc:${imc}`;
-    }else if(imc>25){
-        const gridResultContBack1= document.querySelector('.grid-result-container').style.background=' rgba(255, 255, 0, 0.685)';
-        return imc=` Sobrepeso Imc:${imc}`;
-    }else if(imc>=18){
-        const gridResultContBack= document.querySelector('.grid-result-container').style.background='#00fa9a';
-        return imc=` Peso ideal Imc:${imc}`;
-    }else{
-        return imc='Abaixo do peso'
-    }
-}
-root();
+    const callCalculadora = new Calculadora();
+    callCalculadora.clickRec();
+})();
